@@ -5,6 +5,7 @@ from fastapi.responses import HTMLResponse
 from app.api.v1.endpoints import weather
 from app.api.v1.endpoints import city
 from app.core.config import settings
+from app.core.html import root_html
 
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
@@ -26,9 +27,7 @@ app.include_router(city.router, prefix="/api/v1" )
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
-    html_data = "<h1>Welcome to Weather Service!</h1>"
-    return HTMLResponse(content=html_data)
-
+    return HTMLResponse(content=root_html.html_data)
 
 if __name__ == "__main__": 
     import uvicorn

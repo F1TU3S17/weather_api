@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 
 class CityModel(BaseModel):
@@ -5,5 +6,5 @@ class CityModel(BaseModel):
     lat: float
     lon: float
     country: str
-    state: str
+    state: Optional[str] = None
 

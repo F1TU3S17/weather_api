@@ -19,7 +19,7 @@ async def get_city_data(city: str):
             lat=data[i]['lat'], 
             lon=data[i]['lon'],
             country=data[i]['country'],
-            state=data[i]['state']
+            state=data[i].get('state')
         )
         city_list.append(cityModel)
     return city_list
